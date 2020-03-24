@@ -14,13 +14,11 @@ class App {
   middlewares() {
     // Operadores Globais
     this.server.use(express.json()); // Declarando somente respostas json
-
   }
 
   routes() {
     // Rotas
     this.server.use(routes);
-
   }
 }
 
