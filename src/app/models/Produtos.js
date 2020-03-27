@@ -6,11 +6,17 @@ class Produto extends Model {
       {
         nome_produto: Sequelize.STRING,
         quantidade: Sequelize.INTEGER,
+        preco: Sequelize.DECIMAL,
       },
       {
         sequelize,
       }
     );
+    return this;
+  }
+
+  static associate(models) {
+    this.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' });
   }
 }
 

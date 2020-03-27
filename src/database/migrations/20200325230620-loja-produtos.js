@@ -15,9 +15,13 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      userloja_id: {
+      preco: {
+        type: Sequelize.DOUBLE,
+        allowNull: false,
+      },
+      users_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'user_lojas', key: 'id' },
+        references: { model: 'users', key: 'id' },
         allowNull: true,
       },
     });

@@ -23,6 +23,22 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      nome_loja: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      cnpj: {
+        type: Sequelize.STRING(15),
+        allowNull: true,
+      },
+      telefone_loja: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      endereco_loja: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
       login: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -33,6 +49,7 @@ module.exports = {
       },
       provider: {
         type: Sequelize.BOOLEAN,
+        defaultValue: false,
         allowNull: true,
       },
       created_at: {
