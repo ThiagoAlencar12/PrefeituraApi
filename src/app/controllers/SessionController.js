@@ -9,7 +9,6 @@ class SessionController {
 
     const user = await User.findOne({ where: { login } });
 
-    const 
     // verificando se o login bate
     if (!user) {
       return res.status(401).json({ error: 'Usuário não encontrado' });

@@ -6,7 +6,7 @@ class Produto extends Model {
       {
         nome_produto: Sequelize.STRING,
         quantidade: Sequelize.INTEGER,
-        preco: Sequelize.DECIMAL,
+        preco: Sequelize.FLOAT,
       },
       {
         sequelize,
@@ -16,7 +16,7 @@ class Produto extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' });
+    this.belongsTo(models.User, { foreignKey: 'user_id', as: 'users' });
   }
 }
 

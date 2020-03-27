@@ -16,12 +16,22 @@ module.exports = {
         allowNull: false,
       },
       preco: {
-        type: Sequelize.DOUBLE,
+        type: Sequelize.STRING,
         allowNull: false,
       },
-      users_id: {
+      created_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      updated_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      user_id: {
         type: Sequelize.INTEGER,
         references: { model: 'users', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
         allowNull: true,
       },
     });
