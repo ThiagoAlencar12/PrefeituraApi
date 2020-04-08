@@ -21,10 +21,22 @@ module.exports = {
         onDelete: 'SET NULL',
         allowNull: true,
       },
+      data: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
       status: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false,
+      },
+      created_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      updated_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
       },
     });
   },

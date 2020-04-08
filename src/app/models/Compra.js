@@ -4,6 +4,7 @@ class Compra extends Model {
   static init(sequelize) {
     super.init(
       {
+        data: Sequelize.DATE,
         status: Sequelize.BOOLEAN,
       },
       {

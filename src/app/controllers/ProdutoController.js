@@ -11,7 +11,7 @@ class ProdutoController {
 
     if (!isProvider) {
       return res
-        .status(404)
+        .status(401)
         .json({ error: 'Não é possivel cadastrar produto sem ser Loja' });
     }
 
