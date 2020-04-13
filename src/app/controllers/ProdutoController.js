@@ -15,13 +15,16 @@ class ProdutoController {
         .json({ error: 'Não é possivel cadastrar produto sem ser Loja' });
     }
 
-    const { nome_produto, quantidade, preco } = req.body;
+    const { nome_produto, quantidade, preco, avatar_id } = req.body;
+
+    console.log(avatar_id);
 
     await Produto.create({
       nome_produto,
       quantidade,
       preco,
       user_id,
+      avatar_id,
     });
 
     return res.json({
@@ -29,6 +32,7 @@ class ProdutoController {
       quantidade,
       preco,
       user_id,
+      avatar_id,
     });
   }
 }
