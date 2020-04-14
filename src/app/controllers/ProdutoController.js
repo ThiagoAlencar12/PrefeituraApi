@@ -1,5 +1,6 @@
 import Produto from '../models/Produtos';
 import User from '../models/User';
+import File from '../models/File';
 
 class ProdutoController {
   async store(req, res) {
@@ -17,7 +18,7 @@ class ProdutoController {
 
     const { nome_produto, quantidade, preco, avatar_id } = req.body;
 
-    console.log(avatar_id);
+    const { url, nome } = avatar_id;
 
     await Produto.create({
       nome_produto,
@@ -33,7 +34,29 @@ class ProdutoController {
       preco,
       user_id,
       avatar_id,
+      url,
+      nome,
     });
+  }
+
+  async index(request, response) {
+    const produtos = await Produto.findAll({
+      attributes: ['id', 'nome_produto', 'quantidade', 'preco'],
+      include: [
+        {
+          model: File,
+          as: 'avatar',
+          attributes: ['nome', 'path', 'url'],
+        },
+        {
+          model: User,
+          as: 'users',
+          attributes: ['id', 'nome_loja', 'telefone_loja'],
+        },
+      ],
+    });
+
+    return response.json(produtos);
   }
 }
 

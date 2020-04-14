@@ -24,7 +24,8 @@ routes.get('/lojas', LojaController.index);
 
 // rota de cadastro de produto
 routes.post('/produto', ProdutoController.store);
+routes.get('/produto', ProdutoController.index);
 
-routes.post('/avatar', upload.single('avatar'), FileController.store);
+routes.post('/files', upload.single('avatar'), FileController.store);
 
 export default routes;

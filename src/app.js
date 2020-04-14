@@ -17,7 +17,7 @@ class App {
     // Operadores Globais
     this.server.use(express.json()); // Declarando somente respostas json
     this.server.use(
-      '/avatar',
+      '/files',
       express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
     );
 
