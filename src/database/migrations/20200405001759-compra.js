@@ -30,6 +30,10 @@ module.exports = {
         allowNull: false,
         defaultValue: false,
       },
+      quantidade: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,
@@ -42,6 +46,6 @@ module.exports = {
   },
 
   down: (queryInterface) => {
-    return queryInterface.dropTable('compra');
+    return queryInterface.dropTable('compras');
   },
 };

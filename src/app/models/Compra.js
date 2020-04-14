@@ -6,17 +6,22 @@ class Compra extends Model {
       {
         data: Sequelize.DATE,
         status: Sequelize.BOOLEAN,
+        quantidade: Sequelize.INTEGER,
       },
       {
         sequelize,
+        // tableName: 'compras',
       }
     );
     return this;
   }
 
   static associate(models) {
-    this.belongsTo(models.User, { foreignKey: 'user_id', as: ' user ' });
-    this.belongsTo(models.User, { foreignKey: 'produto_id', as: 'produto' });
+    this.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' });
+    this.belongsTo(models.Produtos, {
+      foreignKey: 'produto_id',
+      as: 'produto',
+    });
   }
 }
 

@@ -18,18 +18,43 @@ class SessionController {
       return res.status(401).json({ error: 'Senha incompativel! ' });
     }
 
-    const { id, nome, provider } = user;
+    const {
+      id,
+      nome,
+      provider,
+      nome_loja,
+      telefone_loja,
+      endereco_loja,
+    } = user;
 
-    return res.json({
-      user: {
-        id,
-        nome,
-        provider,
-      },
-      token: jwt.sign({ id }, authConfig.secret, {
-        expiresIn: authConfig.expiresIn,
-      }),
-    });
+    if (provider) {
+      return res.json({
+        user: {
+          id,
+          nome,
+          provider,
+          nome_loja,
+          telefone_loja,
+          endereco_loja,
+        },
+        token: jwt.sign({ id }, authConfig.secret, {
+          expiresIn: authConfig.expiresIn,
+        }),
+      });
+    }
+
+    if (!provider) {
+      return res.json({
+        user: {
+          id,
+          nome,
+          provider,
+        },
+        token: jwt.sign({ id }, authConfig.secret, {
+          expiresIn: authConfig.expiresIn,
+        }),
+      });
+    }
   }
 }
 

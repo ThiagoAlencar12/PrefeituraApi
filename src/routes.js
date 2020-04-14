@@ -7,6 +7,7 @@ import UserController from './app/controllers/UserController';
 import ProdutoController from './app/controllers/ProdutoController';
 import FileController from './app/controllers/FileController';
 import LojaController from './app/controllers/LojaController';
+import CompraController from './app/controllers/CompraController';
 import authentication from './app/middlewares/auth';
 
 const routes = new Router();
@@ -20,7 +21,11 @@ routes.post('/users', UserController.store);
 
 // Rota de autenticação,
 routes.use(authentication);
+
 routes.get('/lojas', LojaController.index);
+
+routes.post('/compras', CompraController.store);
+routes.get('/compras', CompraController.index);
 
 // rota de cadastro de produto
 routes.post('/produto', ProdutoController.store);
